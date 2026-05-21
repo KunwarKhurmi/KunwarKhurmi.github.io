@@ -3,10 +3,331 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name — Portfolio</title>
+  <title>Kunwar Khurmi — Developer & Professor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f4ef;
+      --bg-card: #ffffff;
+      --text: #1a1814;
+      --text-muted: #6b6560;
+      --accent: #2d5a3d;
+      --accent-light: #e8f0eb;
+      --border: #e0dbd4;
+      --tag-bg: #f0ece6;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      padding: 0 1.5rem;
+    }
+
+    /* layout */
+    .wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 0 2rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* header */
+    .header { margin-bottom: 3rem; }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 1.4rem;
+    }
+
+    .status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 0.9rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.6;
+      max-width: 480px;
+    }
+
+    /* role tags */
+    .roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 1.6rem 0;
+    }
+
+    .role {
+      background: var(--tag-bg);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      padding: 5px 13px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    /* divider */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.4rem 0;
+    }
+
+    /* cards */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 2.4rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.7rem;
+      display: block;
+    }
+
+    .card-title {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .card-body {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
+
+    /* about section */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .about-text {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    /* contact */
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-label {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .linkedin-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 9px 20px;
+      border-radius: 6px;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+
+    .linkedin-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* footer */
+    footer {
+      margin-top: 4rem;
+      padding: 1.8rem 0 2.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .footer-notice {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff8e6;
+      border: 1px solid #f0d98a;
+      color: #7a5c00;
+      font-size: 0.8rem;
+      font-weight: 400;
+      padding: 7px 16px;
+      border-radius: 6px;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* responsive */
+    @media (max-width: 520px) {
+      .cards { grid-template-columns: 1fr; }
+      h1 { font-size: 2.2rem; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hi, I'm Your Name 👋</h1>
-  <p>Android & Web Developer</p>
+  <div class="wrapper">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        Available for collaboration
+      </div>
+
+      <h1>Kunwar<br><em>Khurmi</em></h1>
+
+      <div class="roles">
+        <span class="role">Android Developer</span>
+        <span class="role">Web Developer</span>
+        <span class="role">AI / ML</span>
+        <span class="role">Software Engineer</span>
+        <span class="role">Professor</span>
+      </div>
+
+      <p class="tagline">
+        Developer, educator, and lifelong learner based in Ontario, Canada.
+      </p>
+    </header>
+
+    <hr class="divider">
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card">
+        <span class="card-icon">🎓</span>
+        <div class="card-title">Teaching</div>
+        <div class="card-body">Professor of Mobile Application Development at <strong>Seneca Polytechnic</strong>.</div>
+      </div>
+      <div class="card">
+        <span class="card-icon">📚</span>
+        <div class="card-title">Graduate Studies</div>
+        <div class="card-body">Pursuing an <strong>M.Sc. in Computer Science</strong> at Western University, London, Ontario.</div>
+      </div>
+      <div class="card">
+        <span class="card-icon">📱</span>
+        <div class="card-title">Development</div>
+        <div class="card-body">Building Android, Web, and AI/ML-powered applications and software systems.</div>
+      </div>
+      <div class="card">
+        <span class="card-icon">✈️</span>
+        <div class="card-title">Beyond the Screen</div>
+        <div class="card-body">Travelled to 10 countries. Live music enthusiast — always looking for the next concert.</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- About -->
+    <section>
+      <div class="section-label">About</div>
+      <p class="about-text">
+        I am an Android, Web, and ML developer with a passion for building thoughtful, user-focused software. I also teach Mobile Application Development at Seneca Polytechnic, where I enjoy making complex technical concepts accessible to the next generation of developers.
+      </p>
+      <p class="about-text">
+        Outside of work, I am a traveller and a music lover — two things that keep me curious and grounded in equal measure.
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <div class="contact-row">
+      <span class="contact-label">Let's connect —</span>
+      <a href="https://www.linkedin.com/in/kunwar-khurmi/" target="_blank" rel="noopener noreferrer" class="linkedin-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn Profile
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-notice">
+        🚧 &nbsp; This portfolio is currently under construction — a full version is on its way.
+      </div>
+      <p class="footer-copy">© 2025 Kunwar Khurmi · All rights reserved</p>
+    </footer>
+
+  </div>
 </body>
 </html>
