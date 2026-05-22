@@ -1,0 +1,411 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f7f4ef;
+  --bg-card: #ffffff;
+  --text: #1a1814;
+  --text-muted: #6b6560;
+  --accent: #2d5a3d;
+  --accent-light: #e8f0eb;
+  --border: #e0dbd4;
+  --tag-bg: #f0ece6;
+}
+
+/* ─── Base (Desktop) ───────────────────────────────────────── */
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  padding: 0 1.5rem;
+}
+
+.wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 0 2rem;
+  animation: fadeUp 0.6s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* header */
+.header { margin-bottom: 3rem; }
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 1.4rem;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 0.9rem;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.tagline {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+/* role tags */
+.roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1.6rem 0;
+}
+
+.role {
+  background: var(--tag-bg);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  padding: 5px 13px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+/* divider */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.4rem 0;
+}
+
+/* cards */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 2.4rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.4rem 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.card-icon {
+  font-size: 1.4rem;
+  margin-bottom: 0.7rem;
+  display: block;
+}
+
+.card-title {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.card-body {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+/* about */
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.9rem;
+}
+
+.about-text {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+/* contact */
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact-label {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.linkedin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 9px 20px;
+  border-radius: 6px;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.linkedin-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* footer */
+footer {
+  margin-top: 4rem;
+  padding: 1.8rem 0 2.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.footer-notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff8e6;
+  border: 1px solid #f0d98a;
+  color: #7a5c00;
+  font-size: 0.8rem;
+  font-weight: 400;
+  padding: 7px 16px;
+  border-radius: 6px;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+
+/* ─── Tablet (601px – 900px) ───────────────────────────────── */
+@media (min-width: 601px) and (max-width: 900px) {
+
+  body {
+    padding: 0 2rem;
+  }
+
+  .wrapper {
+    padding: 3rem 0 2rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 1.2rem 1.3rem;
+  }
+
+  .tagline {
+    max-width: 100%;
+  }
+
+  .contact-row {
+    gap: 12px;
+  }
+
+  .linkedin-btn {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+  }
+
+  footer {
+    padding: 1.5rem 0 2rem;
+  }
+}
+
+
+/* ─── Mobile (≤ 600px) ─────────────────────────────────────── */
+@media (max-width: 600px) {
+
+  body {
+    padding: 0 1rem;
+  }
+
+  .wrapper {
+    padding: 2.2rem 0 1.5rem;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .status-pill {
+    font-size: 0.68rem;
+    padding: 4px 10px;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .tagline {
+    font-size: 0.93rem;
+    max-width: 100%;
+  }
+
+  .roles {
+    gap: 6px;
+    margin: 1.2rem 0;
+  }
+
+  .role {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+
+  .divider {
+    margin: 1.6rem 0;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 1.6rem;
+  }
+
+  .card {
+    padding: 1.1rem 1.2rem;
+    border-radius: 8px;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .card-icon {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-title {
+    font-size: 0.75rem;
+  }
+
+  .card-body {
+    font-size: 0.88rem;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+  }
+
+  .about-text {
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  .contact-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 1.5rem;
+  }
+
+  .linkedin-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
+  footer {
+    margin-top: 2.5rem;
+    padding: 1.4rem 0 2rem;
+    gap: 8px;
+  }
+
+  .footer-notice {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    text-align: center;
+  }
+
+  .footer-copy {
+    font-size: 0.7rem;
+  }
+}
+
+
+/* ─── Very small phones (≤ 360px) ─────────────────────────── */
+@media (max-width: 360px) {
+
+  body { padding: 0 0.75rem; }
+
+  h1 { font-size: 1.9rem; }
+
+  .role {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  .card { padding: 1rem; }
+}
