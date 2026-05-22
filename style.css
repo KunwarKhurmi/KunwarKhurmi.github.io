@@ -1,6 +1,6 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
+: root {
   --bg: #f7f4ef;
   --bg-card: #ffffff;
   --text: #1a1814;
@@ -130,7 +130,7 @@ h1 em {
   transition: border-color 0.2s, transform 0.2s;
 }
 
-.card:hover {
+.card: hover {
   border-color: var(--accent);
   transform: translateY(-2px);
 }
@@ -252,11 +252,6 @@ footer {
     font-size: clamp(2rem, 5vw, 3rem);
   }
 
-  .cards {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
   .card {
     padding: 1.2rem 1.3rem;
   }
@@ -280,8 +275,8 @@ footer {
 }
 
 
-/* ─── Mobile (≤ 600px) ─────────────────────────────────────── */
-@media (max-width: 600px) {
+/* ─── Mobile (≤ 768px) ─────────────────────────────────────── */
+@media (max-width: 768px) {
 
   body {
     padding: 0 1rem;
