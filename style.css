@@ -1,6 +1,6 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-: root {
+:root {
   --bg: #f7f4ef;
   --bg-card: #ffffff;
   --text: #1a1814;
@@ -130,7 +130,7 @@ h1 em {
   transition: border-color 0.2s, transform 0.2s;
 }
 
-.card: hover {
+.card:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
 }
@@ -237,8 +237,8 @@ footer {
 }
 
 
-/* ─── Tablet (601px – 900px) ───────────────────────────────── */
-@media (min-width: 601px) and (max-width: 900px) {
+/* ─── Tablet (769px – 900px) ───────────────────────────────── */
+@media (min-width: 769px) and (max-width: 900px) {
 
   body {
     padding: 0 2rem;
