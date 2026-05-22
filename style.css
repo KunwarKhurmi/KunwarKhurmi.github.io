@@ -404,3 +404,10 @@ footer {
 
   .card { padding: 1rem; }
 }
+
+/* ─── for touch screen devices and devices (<= 600px)  ─────────────────────────── */
+@media (hover: none) and (pointer: coarse) and (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
